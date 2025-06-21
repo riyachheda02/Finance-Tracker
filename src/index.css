@@ -256,3 +256,24 @@ select {
 .trash-button:hover {
   color: rgb(197, 0, 0);
 }
+.transaction-list {
+  margin-top: 2rem;
+}
+
+.transaction-item {
+  background: #f9f9f9;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.transaction-item button {
+  margin-left: 0.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
