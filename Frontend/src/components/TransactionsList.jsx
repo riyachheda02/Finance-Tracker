@@ -3,8 +3,10 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Edit2, Save, Trash2, X } from "lucide-react";
 import { useState } from "react";
+import { useTransactions } from "../Context/TransactionContext";
 
-function TransactionList({ transactions, deleteTransaction, editTransaction }) {
+function TransactionList() {
+  const {transactions, deleteTransaction, editTransaction}=useTransactions();
   return (
     <Card className="main-container">
       <CardHeader>
@@ -22,7 +24,7 @@ function TransactionList({ transactions, deleteTransaction, editTransaction }) {
         ) : (
           transactions.map((item) => (
             <TransactionItem
-              key={item.id}
+              key={item._id}
               item={item}
               deleteTransaction={deleteTransaction}
               editTransaction={editTransaction}
@@ -44,7 +46,7 @@ function TransactionItem({ item, deleteTransaction, editTransaction }) {
   const handleEdit = (e) => {
     e.preventDefault();
 
-    editTransaction(item.id, {
+    editTransaction(item._id, {
       amount: parseFloat(amount),
       description,
       type,
@@ -162,13 +164,13 @@ function TransactionItem({ item, deleteTransaction, editTransaction }) {
                   ${item.amount.toLocaleString()}
                 </span>
                 <span className="sub-text-small" style={{ color: "#666" }}>
-                  {new Date(item.id).toLocaleDateString("en-US", {
+                  {new Date(item._id).toLocaleDateString("en-US", {
                     month: "short",
                     day: "numeric",
                     year: "numeric",
                   })}
                   {" • "}
-                  {new Date(item.id).toLocaleTimeString("en-US", {
+                  {new Date(item._id).toLocaleTimeString("en-US", {
                     hour: "numeric",
                     minute: "numeric",
                     hour12: true,
@@ -182,7 +184,7 @@ function TransactionItem({ item, deleteTransaction, editTransaction }) {
                 <Edit2 className="sub-container-icon-medium" />
               </Button>
               <Button
-                onClick={() => deleteTransaction(item.id)}
+                onClick={() => deleteTransaction(item._id)}
                 variant="outline"
                 className="trash-button"
               >
