@@ -8,7 +8,7 @@ app.use(cors()); // Allow cross-origin requests
 app.use(express.json()); // Parse JSON bodies
 // MongoDB connection using Mongoose
 mongoose
-  .connect(process.env.MONGODDB_URI, {
+  .connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     dbName: "financeApp",
