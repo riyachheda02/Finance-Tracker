@@ -35,13 +35,13 @@ mongoose
 });
 // Create a model from the schema
 const Transaction = mongoose.model("Transaction", transactionSchema);
-//   //get/example
-//   app.get("/",(req,res)=>{
-//     res.send("🍑🍒🥯haha")
-//   });
+  //get/example
+  app.get("/",(req,res)=>{
+    res.send("🍑🍒🥯haha")
+  });
   //strat server
   app.listen(5000,(req, res)=>{
-    console.log('🍑🍒🥯Server running at http://localhost:5000/');
+    console.log('🍑🍒🥯Server running at https://finance-tracker-2-5x5d.onrender.com/');
   });
   // GET /transactions - fetch all transactions
 app.get("/transactions", async (req, res) => {
